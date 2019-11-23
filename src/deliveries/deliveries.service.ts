@@ -14,7 +14,7 @@ export class DeliveriesService {
     }
 
     async findById(id: string): Promise<Delivery> {
-        return await null;
+        return await this.deliveryModel.findById(id).exec();;
     }
 
     async create(delivery: Delivery): Promise<Delivery> {
@@ -23,11 +23,11 @@ export class DeliveriesService {
     }
 
     async update(id: string, delivery: Delivery): Promise<Delivery> {
-        return await null;
+        return await this.deliveryModel.findByIdAndUpdate(id, delivery);
     }
 
     async delete(id: string): Promise<boolean> {
-        return await null;
+        return await this.deliveryModel.findOneAndDelete(id);
     }
 
 

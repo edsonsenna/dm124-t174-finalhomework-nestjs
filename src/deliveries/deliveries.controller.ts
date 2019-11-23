@@ -25,7 +25,7 @@ export class DeliveriesController {
         return await this.deliveriesService.create(delivery);
     }
 
-    @Patch('/')
+    @Patch('/:id')
     async update(@Param() params, @Body() delivery: Delivery): Promise<Delivery> {
         return await this.deliveriesService.update(params.id, delivery);
     }
