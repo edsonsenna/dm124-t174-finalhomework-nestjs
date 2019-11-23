@@ -22,7 +22,7 @@ export class DeliveriesController {
 
     @Post('/')
     async create(@Body() delivery: Delivery): Promise<Delivery> {
-        return await this.deliveriesService.save(delivery);
+        return await this.deliveriesService.create(delivery);
     }
 
     @Patch('/')
