@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { DeliveriesController } from './deliveries/deliveries.controller';
-import { DeliveriesService } from './deliveries/deliveries.service';
+
+import { DeliveriesModule } from './deliveries/deliveries.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, DeliveriesController],
-  providers: [AppService, DeliveriesService],
+  imports: [DeliveriesModule, MongooseModule.forRoot('mongodb://admin:adm123@ds053370.mlab.com:53370/dm124-finalhomework')],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
