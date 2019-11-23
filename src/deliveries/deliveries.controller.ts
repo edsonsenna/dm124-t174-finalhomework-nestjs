@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Patch, Delete } from '@nestjs/common';
 
 import { Delivery } from './delivery';
 import { DeliveriesService } from './deliveries.service';
@@ -24,4 +24,16 @@ export class DeliveriesController {
     async create(@Body() delivery: Delivery): Promise<Delivery> {
         return await this.deliveriesService.save(delivery);
     }
+
+    @Patch('/')
+    async update(@Param() params, @Body() delivery: Delivery): Promise<Delivery> {
+        return await this.deliveriesService.update(params.id, delivery);
+    }
+
+    @Delete('/:id')
+    async delete(@Param() params): Promise<boolean> {
+        return await this.deliveriesService.delete(params.id);
+    }
+
+
 }
