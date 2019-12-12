@@ -14,7 +14,7 @@ export class DeliveriesService {
     }
 
     async findById(id: string): Promise<Delivery> {
-        return await this.deliveryModel.findById(id).exec();;
+        return await this.deliveryModel.findById(id).exec();
     }
 
     async create(delivery: Delivery): Promise<Delivery> {
