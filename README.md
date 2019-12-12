@@ -1,75 +1,57 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Trabalho final da disciplina DM124
+## Discente: Edson de Senna Júnior
+## Docente: Edy Segura
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+[PT-BR] Este trabalho foi desenvolvido utilizando o framework NestJs e o banco não-relacional MongoDB.
+[ENG] This work was made using NestJS framework and No-SQL MongoDB.
 
-## Description
+[PT-BR] Para sua utilização, executar os seguintes passos:
+[ENG] To use, follow those steps:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+```
+yarn install
+yarn start
+```
+[PT-BR] O projeto será iniciado na porta local 3000 ou na porta default do servidor em que está hospedado.
+[ENG] The project will be started and provided in 3000 port or in server default port where was deployed.
 
-## Installation
+[PT-BR] Alguns endpoints estão protegidos e devem utilizar um token JWT para serem acessados, para obter um token de acesso utilize o seguinte endpoint e informe o seguinte objeto.
+[ENG] Some endpoints are protected and a JWT token will be needed to access them, to get a token use this endpoint e and provide the following object.
 
-```bash
-$ npm install
+```
+POST /auth/login
+
+{
+	"username": "admin",
+	"password": "adm123"
+}
 ```
 
-## Running the app
+[PT-BR] Para manipular os objetos de entregas no banco de dados utilize os seguintes endpoints, estes seguem o modelo REST.
+[ENG] To manipulate deliveries objects into the database uses those endpoints, they follow REST model.
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```
+GET /deliveries
+GET /deliveries/:id
+POST /deliveries
+PATCH /deliveries/:id
+DELETE /deliveries/:id
 ```
 
-## Test
+[PT-BR] Um exemplo de objeto de entrega.
+[ENG] An example of delivery object.
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```
+{
+        "_id": "5df18c9e1bff9b0023eb6e4d",
+        "orderId": "24",
+        "clientId": "123",
+        "receiverName": "Edson Junior",
+        "receiverCPF": "11111111111",
+        "isClientReceiver": false,
+        "orderDate": "2019-11-23T14:00:00.000Z",
+        "location": "SRS, Minas Gerais, Brazil",
+        "__v": 0
+}
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-  Nest is [MIT licensed](LICENSE).
