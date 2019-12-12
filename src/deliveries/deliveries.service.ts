@@ -27,7 +27,7 @@ export class DeliveriesService {
     }
 
     async delete(id: string): Promise<boolean> {
-        return await this.deliveryModel.findOneAndDelete(id);
+        return await this.deliveryModel.findByIdAndDelete(id);
     }
 
 
